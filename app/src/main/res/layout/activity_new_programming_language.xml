@@ -1,0 +1,89 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Linguagem de Programação"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <EditText
+            android:id="@+id/etTyping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipagem"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <EditText
+            android:id="@+id/etParadigm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Paradigma"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <EditText
+            android:id="@+id/etLearningCurve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Curva de aprendizado"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <EditText
+            android:id="@+id/etImageURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL da imagem"
+            android:textSize="20sp"
+            android:paddingVertical="16dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="saveLanguage"
+            android:text="Salvar"
+            android:textSize="20sp"
+            android:layout_marginTop="24dp" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="deleteLanguage"
+            android:text="Excluir"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
