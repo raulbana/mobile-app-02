@@ -2,8 +2,6 @@ package com.appteste.programlanguagesmaterial.controller
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ListView
@@ -21,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dao: ProgrammingLanguageDao
     private lateinit var adapter: ProgrammingLanguageAdapter
     private var languages: List<ProgrammingLanguage> = emptyList()
-    private var filteredLanguages: List<ProgrammingLanguage> = emptyList()
 
     private val mockLanguages = listOf(
         ProgrammingLanguage(
@@ -79,14 +76,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val etSearch = findViewById<EditText>(R.id.etSearch)
-        etSearch.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                filterLanguages(s.toString())
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
+        etSearch.isFocusable = false
+        etSearch.setOnClickListener {
+            val intent = Intent(this, QueryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
@@ -102,8 +96,6 @@ class MainActivity : AppCompatActivity() {
             languages = dao.getAllLanguages()
         }
 
-        filteredLanguages = languages
-
         if (languages.isEmpty()) {
             listView.visibility = View.GONE
             emptyTextView.visibility = View.VISIBLE
@@ -111,31 +103,9 @@ class MainActivity : AppCompatActivity() {
             listView.visibility = View.VISIBLE
             emptyTextView.visibility = View.GONE
 
-            adapter = ProgrammingLanguageAdapter(this, filteredLanguages)
+            adapter = ProgrammingLanguageAdapter(this, languages)
             listView.adapter = adapter
         }
-    }
-
-    private fun filterLanguages(query: String) {
-        filteredLanguages = if (query.isBlank()) {
-            languages
-        } else {
-            languages.filter {
-                it.name.contains(query, ignoreCase = true)
-                        || it.typing.contains(query, ignoreCase = true)
-                        || it.paradigm.contains(query, ignoreCase = true)
-                        || it.description.contains(query, ignoreCase = true)
-            }
-        }
-        updateListView()
-    }
-
-    private fun updateListView() {
-        adapter = ProgrammingLanguageAdapter(this, filteredLanguages)
-        listView.adapter = adapter
-
-        listView.visibility = if (filteredLanguages.isEmpty()) View.GONE else View.VISIBLE
-        emptyTextView.visibility = if (filteredLanguages.isEmpty()) View.VISIBLE else View.GONE
     }
 
     fun addNewLanguage(view: View) {
