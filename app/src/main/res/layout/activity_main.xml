@@ -5,6 +5,26 @@
     android:padding="16dp">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:text="Linguagens de Programação"
+        android:textAlignment="center"
+        android:textColor="#9C27B0"
+        android:textSize="24sp" />
+    
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pesquisar linguagem"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="16sp" />
+
+    <TextView
         android:id="@+id/tvEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +32,7 @@
         android:textAlignment="center"
         android:visibility="gone"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="#9C27B0"
         android:paddingVertical="20dp" />
 
     <ListView

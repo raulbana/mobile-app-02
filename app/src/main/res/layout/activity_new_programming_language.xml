@@ -11,60 +11,106 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
             android:text="Linguagem de Programação"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp" />
+            android:textColor="#9C27B0"
+            android:textSize="24sp" />
 
+        <ImageView
+            android:id="@+id/ivLanguageImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Imagem da linguagem"
+            android:src="@drawable/ic_language_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipagem:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etTyping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tipagem"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paradigma:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etParadigm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Paradigma"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Curva de aprendizado:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etLearningCurve"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Curva de aprendizado"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descrição:"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descrição"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID do recurso da imagem (opcional):"
+            android:textSize="16sp"
+            android:paddingTop="8dp"/>
         <EditText
             android:id="@+id/etImageURL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="URL da imagem"
+            android:hint="Ex: R.drawable.ic_logo_java"
             android:textSize="20sp"
-            android:paddingVertical="16dp" />
+            android:paddingVertical="8dp" />
 
         <Button
             android:id="@+id/btnSave"
