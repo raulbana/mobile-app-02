@@ -74,16 +74,20 @@ class NewProgrammingLanguageActivity : AppCompatActivity() {
     }
     }
 
-    private fun loadLanguage() {
-        dao.getLanguageById(languageId)?.let { lang ->
-            inputs["name"]?.setText(lang.name)
-            inputs["typing"]?.setText(lang.typing)
-            inputs["paradigm"]?.setText(lang.paradigm)
-            inputs["learningCurve"]?.setText(lang.learningCurve)
-            inputs["description"]?.setText(lang.description)
-            inputs["imageUrl"]?.setText(lang.imageUrl?.toString() ?: "")
-        }
+  private fun loadLanguage() {
+    dao.getLanguageById(languageId)?.let { lang ->
+        inputs["name"]?.setText(lang.name)
+        inputs["typing"]?.setText(lang.typing)
+        inputs["paradigm"]?.setText(lang.paradigm)
+        inputs["learningCurve"]?.setText(lang.learningCurve)
+        inputs["description"]?.setText(lang.description)
+        inputs["imageUrl"]?.setText(lang.imageUrl?.toString() ?: "")
+
+        val imageView = findViewById<ImageView>(R.id.ivLanguageImage)
+        val imageRes = lang.imageUrl ?: R.drawable.ic_language_placeholder
+        imageView.setImageResource(imageRes)
     }
+}
 
     fun deleteLanguage(view: View) {
         dao.deleteLanguage(languageId)
@@ -92,7 +96,7 @@ class NewProgrammingLanguageActivity : AppCompatActivity() {
     }
 
     private fun areFieldsValid(): Boolean {
-        return inputs.values.all { it.text.isNotBlank() }
+        return inputs.filterKeys { it != "imageUrl" }.values.all { it.text.isNotBlank() }
     }
 
     private fun showToast(message: String) {
